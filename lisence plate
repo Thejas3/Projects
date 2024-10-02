@@ -1,0 +1,22 @@
+import random
+
+year = int(input('Please enter the model year of your vehicle: '))
+make = (input('Please enter the maker of your vehicle: '))
+model = input('Please enter the model of your vehicle: ')
+
+letter_a = (chr(random.randint(65, 90)))
+letter_b = (chr(random.randint(65, 90)))
+letter_c = (chr(random.randint(65, 90)))
+
+digits = random.randint(1000, 9999)
+
+license_plate = (str(letter_a + letter_b + letter_c)) + digits
+
+car = {
+    'Year' : year,
+    'Make' : make,
+    'Model' : model,
+    'Plate' : license_plate
+}
+
+print(f'The license plate for you {car["year"]} {car["make"]} {car["model"]} is {car["plate"]}')

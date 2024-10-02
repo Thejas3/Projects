@@ -1,0 +1,37 @@
+def hex_to_rgb(hex_code):
+    hex_code = hex_code.lstrip('#')
+
+    hex_values = {
+        '0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5' : 5, '6': 6, '7': 7,
+        '8': 8, '9': 9, 'A': 10, 'B': 11, 'C': 12, 'D': 13, 'E': 14, 'F': 15
+    }
+
+    r = hex_values[hex_code[0]] * 16 + hex_values[hex_code[1]]
+    g = hex_values[hex_code[2]] * 16 + hex_values[hex_code[3]]
+    b = hex_values[hex_code[4]] * 16 + hex_values[hex_code[5]]
+
+    return {'Red': r, 'Green': g, 'Blue': b}
+
+def main():
+    print('HEX to RGB: ')
+    while True:
+        hex_code = input("Enter the hexadecimal RGB code, or 'q' to quit: ").strip()
+
+        if hex_code.lower() in ['quit', 'q']:
+            break
+
+        hex_code = hex_code.lstrip('#')
+        if len(hex_code) != 6 or not all(char in '0123456789ABCDEFabcdef' for char in hex_code):
+            print('Invalid Input. Type in a 6-character hexadecimal code')
+        else:
+            rgb_values = hex_to_rgb(hex_code.upper())
+            print('RGB Values: ')
+            for component, value in rgb_values.items():
+                print(f"{component}: {value}")
+
+
+if __name__ == '__main__':
+    main()
+    
+
+

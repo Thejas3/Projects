@@ -1,0 +1,18 @@
+word_list = ['the', 'quick', 'brown', 'fox', 'jumps', 'over', 'the', 'lazy', 'dog']
+def build_dict(word_list):
+    x = {}
+    for word in word_list:
+        word = word.lower()
+
+        if word in x:
+            x[word]+=1
+        else: 
+            x[word]=1
+        return
+
+text = input(':>')
+word_list = text.split()
+x = build_dict(word_list)
+print('\nBag of Words: ')
+for word, count in sorted(x.items()):
+    print(f'{word}-{count}')
